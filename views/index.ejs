@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Blog</title>
+</head>
+<body>
+  <h1>My Blog App</h1>
+<p class="paragraph">Welcome to my simple blog application, it was created using Node.js, Express.js, and EJS. The application allows users to create and view blog posts. These posts will not persist between sessions as no database was used in this version of the application.</p>
+  <p class="newpost"><a href="/posts/new">Create New Post</a></p>
+  <% posts.forEach(post => { %>
+    <div class="post">
+      <h2><%= post.title %></h2>
+      <p><%= post.content %></p>
+    <div class="buttons-links">
+      <p class="links-paragraph"><a href="/posts/<%= post.id %>/edit">Edit</a></p>
+      <form action="/posts/<%= post.id %>/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+    </div>
+  <% }) %>
+</body>
+</html>
